@@ -1,11 +1,16 @@
-import './App.scss'
+import { Outlet } from 'react-router-dom';
+import { Navbar } from  './components/Navbar';
+import './App.scss';
 
 function App() {
 
   return (
-    <>
-     <div>Axios</div>
-    </>
+    <div className="App">
+      <Navbar />
+      <div className="container">
+        <Outlet />
+      </div>
+    </div>
   )
 }
 

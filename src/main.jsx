@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.scss';
 
-import { createBrowserRoute, RouterProvider, Router } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Router } from 'react-router-dom';
 
 import { Home } from './routes/Home.jsx';
 import { NewPost } from './routes/NewPost.jsx';
+import { Post } from './routes/Post.jsx';
 
 
-const router = createBrowserRoute([
+const router = createBrowserRouter([
   {
     element: <App/>,
     children: [
@@ -21,12 +22,16 @@ const router = createBrowserRoute([
         path: "/new",
         element: <NewPost />
       },
+      {
+        path: "/posts/:id",
+        element: <Post /> 
+      }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
